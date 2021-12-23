@@ -7,13 +7,21 @@ import { useIntl } from 'umi';
 const Admin: React.FC = () => {
   const intl = useIntl();
   return (
-    <PageHeaderWrapper
-      content={intl.formatMessage({
-        id: 'pages.admin.subPage.title',
-        defaultMessage: 'This page can only be viewed by admin',
-      })}
-    >
+    <PageHeaderWrapper title={false} breadcrumb={undefined}>
       <Card>
+        <Alert
+          message={intl.formatMessage({
+            id: 'pages.admin.subPage.title',
+            defaultMessage: 'This page can only be viewed by admin',
+          })}
+          type="info"
+          showIcon
+          banner
+          style={{
+            margin: -12,
+            marginBottom: 20,
+          }}
+        />
         <Alert
           message={intl.formatMessage({
             id: 'pages.welcome.alertMessage',
@@ -24,7 +32,7 @@ const Admin: React.FC = () => {
           banner
           style={{
             margin: -12,
-            marginBottom: 48,
+            marginBottom: 30,
           }}
         />
         <Typography.Title level={2} style={{ textAlign: 'center' }}>
